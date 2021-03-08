@@ -6,13 +6,6 @@
 ?>
 
 <?php
-    // //de MVC hoat dong thi include file Controller cua MVC do
-    // include "controllers/ControllerPhongBan.php";
-    // // khoi tao object cua class controller
-    // $obj = new ControllerPhongBan();
-    // //goi ham index trong class ControllerPhongBan
-    // $obj->index();
-
 
     //lay bien cotroller truyen tu url
     $controller = isset($_GET["controller"])?$_GET["controller"]:"Home";
@@ -35,12 +28,4 @@
     else die ("File controller ko ton tai");
 
 
-?>
-<?php
-    // //de MVC hoat dong thi include file Controller cua MVC do
-    // include "controllers/ControllerChucDanh.php";
-    // // khoi tao object cua class controller
-    // $obj = new ControllerChucDanh();
-    // //goi ham index trong class ControllerChucDanh
-    // $obj->index();
 ?>

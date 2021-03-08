@@ -1,8 +1,8 @@
 <?php
     session_start();
     //load file Connection
-    include "../application/Connection.php";
-    include "../application/Controller.php";
+    include "application/Connection.php";
+    include "application/Controller.php";
 ?>
 
 <?php
