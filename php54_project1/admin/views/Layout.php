@@ -88,24 +88,33 @@
                 <li class="header">LAOYOUT ADMIN</li>
 
                 <li>
-                    <a href="pages/widgets.html">
-                        <i class="fa fa-th"></i> <span>Danh mục tin tức</span>
+                    <a href="index.php?controller=categories">
+                        <i class="fa fa-th"></i> <span>Danh mục</span>
                     </a>
                 </li>
                 <li>
-                    <a href="pages/widgets.html">
-                        <i class="fa fa-th"></i> <span>Danh sách tin tức</span>
+                    <a href="index.php?controller=products">
+                        <i class="fa fa-th"></i> <span>Sản phẩm</span>
                     </a>
                 </li>
                 <li>
-                    <a href="pages/widgets.html">
-                        <i class="fa fa-code"></i> <span>Quản lý user</span>
-                        
+                    <a href="index.php?controller=news">
+                        <i class="fa fa-th"></i> <span>Tin tức</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.php?controller=orders">
+                        <i class="fa fa-th"></i> <span>Đơn hàng</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.php?controller=users">
+                        <i class="fa fa-code"></i> <span>Users</span>
                     </a>
                 </li>
                 <li>
                     <a href="index.php?controller=login&action=logout">
-                        <i class="fa fa-code"></i> <span>Đăng xuất</span>  
+                        <i class="fa fa-th"></i> <span>Đăng xuất</span>
                     </a>
                 </li>
             </ul>
@@ -149,7 +158,7 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="../assetsadmin/layout1/js/jquery.min.js"></script>
+<script src="../assets/admin/layout1/js/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="../assets/admin/layout1/js/jquery-ui.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
