@@ -1,5 +1,5 @@
 <?php
-    trait ModelUsers{
+    trait ModelCategories{
         // lấy về danh sách các bản ghi
         public function modelRead($recordPerPage){
             // lấy biến page truyền từ URL
@@ -10,7 +10,7 @@
             // lấy biến kết nối csdl
             $conn = Connection::getInstance();
             // thực hiện truy vấn
-            $query = $conn->query("select * from users order by id desc limit $from, $recordPerPage");
+            $query = $conn->query("select * from categories order by id desc limit $from, $recordPerPage");
             // trả về nhiều bản ghi
             return $query->fetchAll();
         }
@@ -19,7 +19,7 @@
             // lấy biến kết nối csdl
             $conn = Connection::getInstance();
             // thực hiện truy vấn
-            $query = $conn->query("select id from users");
+            $query = $conn->query("select id from categories");
             // trả về số bản ghi
             return $query->rowCount();
         }
@@ -29,7 +29,7 @@
             // lấy biến kết nối csdl
             $conn = Connection::getInstance();
             // thực hiện truy vấn
-            $query = $conn->query("select * from users where id=$id");
+            $query = $conn->query("select * from categories where id=$id");
             // trả về 1 bản ghi
             return $query->fetch();
         }
@@ -40,13 +40,13 @@
             //update name
             // lay bien ket noi csdl
             $conn = Connection::getInstance();
-            $query = $conn->prepare("update users set name =:var_name where id =$id");
+            $query = $conn->prepare("update categories set name =:var_name where id =$id");
             $query->execute(array("var_name"=>$name));
             //neu password ko rong thi update password
             if($password != ""){
                 //ma hoa password
                 $password = md5($password);
-                $query = $conn->prepare("update users set password =:var_password where id = $id");
+                $query = $conn->prepare("update categories set password =:var_password where id = $id");
                 $query->execute(array("var_password"=>$password));
             }
         }
@@ -59,7 +59,7 @@
              $password = md5($password);
             // lay bien ket noi csdl
             $conn = Connection::getInstance();
-            $query = $conn->prepare("insert users set name =:var_name, email =:var_email, password=:var_password");
+            $query = $conn->prepare("insert categories set name =:var_name, email =:var_email, password=:var_password");
             $query->execute(array("var_name"=>$name,"var_email"=>$email, "var_password"=>$password));
            
           }
@@ -68,7 +68,7 @@
             // lay bien ket noi csdl
             $conn = Connection::getInstance();
             //thuc hien truy van
-            $conn -> query("delete from users where id = $id");
+            $conn -> query("delete from categories where id = $id");
         }
     }
 ?>

@@ -85,11 +85,11 @@
             </div>
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
-                <li class="header">LAOYOUT ADMIN</li>
+                <li class="header">LAYOUT ADMIN</li>
 
                 <li>
                     <a href="index.php?controller=categories">
-                        <i class="fa fa-th"></i> <span>Danh mục</span>
+                        <i class="fa fa-th"></i> <span>Danh mục </span>
                     </a>
                 </li>
                 <li>
@@ -99,12 +99,7 @@
                 </li>
                 <li>
                     <a href="index.php?controller=news">
-                        <i class="fa fa-th"></i> <span>Tin tức</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="index.php?controller=orders">
-                        <i class="fa fa-th"></i> <span>Đơn hàng</span>
+                        <i class="fa fa-code"></i> <span>Tin tức</span>
                     </a>
                 </li>
                 <li>
@@ -114,7 +109,7 @@
                 </li>
                 <li>
                     <a href="index.php?controller=login&action=logout">
-                        <i class="fa fa-th"></i> <span>Đăng xuất</span>
+                        <i class="fa fa-code"></i> <span>Đăng xuất</span>
                     </a>
                 </li>
             </ul>
@@ -158,7 +153,7 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="../assets/admin/layout1/js/jquery.min.js"></script>
+<script src="../assetsadmin/layout1/js/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="../assets/admin/layout1/js/jquery-ui.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
