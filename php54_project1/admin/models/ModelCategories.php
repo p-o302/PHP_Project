@@ -10,7 +10,7 @@
             // lấy biến kết nối csdl
             $conn = Connection::getInstance();
             // thực hiện truy vấn
-            $query = $conn->query("select * from categories order by id desc limit $from, $recordPerPage");
+            $query = $conn->query("select * from categories where parent_id=0 order by id desc limit $from, $recordPerPage");
             // trả về nhiều bản ghi
             return $query->fetchAll();
         }
@@ -19,7 +19,7 @@
             // lấy biến kết nối csdl
             $conn = Connection::getInstance();
             // thực hiện truy vấn
-            $query = $conn->query("select id from categories");
+            $query = $conn->query("select id from categories where parent_id=0");
             // trả về số bản ghi
             return $query->rowCount();
         }
@@ -36,31 +36,20 @@
         public function modelUpdate(){
             $id = isset($_GET["id"])&&$_GET["id"] > 0 ? $_GET["id"] : 0;
             $name = $_POST["name"];
-            $password = $_POST["password"];
+            $parent_id = $_POST["parent_id"];
             //update name
             // lay bien ket noi csdl
             $conn = Connection::getInstance();
-            $query = $conn->prepare("update categories set name =:var_name where id =$id");
-            $query->execute(array("var_name"=>$name));
-            //neu password ko rong thi update password
-            if($password != ""){
-                //ma hoa password
-                $password = md5($password);
-                $query = $conn->prepare("update categories set password =:var_password where id = $id");
-                $query->execute(array("var_password"=>$password));
-            }
+            $query = $conn->prepare("update categories set name =:var_name, parent_id=:var_parent_id where id =$id");
+            $query->execute(array("var_name"=>$name, "var_parent_id" =>$parent_id));
         }
         public function modelCreate(){
-            $id = isset($_GET["id"])&&$_GET["id"] > 0 ? $_GET["id"] : 0;
             $name = $_POST["name"];
-            $email = $_POST["email"];
-            $password = $_POST["password"];
-            //ma hoa password
-             $password = md5($password);
+            $parent_id = $_POST["parent_id"];
             // lay bien ket noi csdl
             $conn = Connection::getInstance();
-            $query = $conn->prepare("insert categories set name =:var_name, email =:var_email, password=:var_password");
-            $query->execute(array("var_name"=>$name,"var_email"=>$email, "var_password"=>$password));
+            $query = $conn->prepare("insert categories set name =:var_name,  parent_id=:var_parent_id");
+            $query->execute(array("var_name"=>$name, "var_parent_id"=>$parent_id));
            
           }
         public function modelDelete(){
@@ -68,7 +57,21 @@
             // lay bien ket noi csdl
             $conn = Connection::getInstance();
             //thuc hien truy van
-            $conn -> query("delete from categories where id = $id");
+            $conn -> query("delete from categories where id = $id or parent_id = $id");
+        }
+        public function modelReadSub($categories_id){
+            // lay bien ket noi csdl
+            $conn = Connection::getInstance();
+            //thuc hien truy van
+            $query = $conn -> query("select * from categories where parent_id = $categories_id");
+            return $query->fetchAll();
+        }
+        public function modelListCategories(){
+            // lay bien ket noi csdl
+            $conn = Connection::getInstance();
+            //thuc hien truy van
+            $query = $conn -> query("select * from categories where parent_id = 0 order by id desc");
+            return $query->fetchAll();
         }
     }
 ?>
