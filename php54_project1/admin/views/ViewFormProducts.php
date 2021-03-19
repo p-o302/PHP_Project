@@ -7,7 +7,8 @@ $this->fileLayout = "Layout.php";
     <div class="panel panel-primary">
         <div class="panel-heading">Add edit product</div>
         <div class="panel-body">
-            <form method="post" action="<?php echo $action; ?>">
+        <!-- muon load file (anh, cac thu do) thi phai dung enctype="multipart/form-data" -->
+            <form method="post" enctype="multipart/form-data" action="<?php echo $action; ?>">
                 <!-- rows -->
                 <div class="row" style="margin-top:5px;">
                     <div class="col-md-2">Name</div>
@@ -27,12 +28,12 @@ $this->fileLayout = "Layout.php";
                             ?>
                             <?php foreach ($data as $rows) : ?>
 
-                                <option <?php if (isset($record->parent_id) && $record->parent_id == $rows->id) : "" ?> select <?php endif; ?> value="<?php echo $rows->id; ?>"> <?php echo $rows->name; ?> </option>
+                                <option <?php if (isset($record->category_id) && $record->category_id == $rows->id) : "" ?> select <?php endif; ?> value="<?php echo $rows->id; ?>"> <?php echo $rows->name; ?> </option>
                                 <?php
                                 $dataSub = $this->modelReadCategorySub($rows->id);
                                 ?>
                                 <?php foreach ($dataSub as $rowsSub) : ?>
-                                    <option <?php if (isset($record->parent_id) && $record->parent_id == $rowsSub->id) : "" ?> select <?php endif; ?> value="<?php echo $rowsSub->id; ?>"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rowsSub->name; ?> </option>
+                                    <option <?php if (isset($record->category_id) && $record->category_id == $rowsSub->id) : "" ?> select <?php endif; ?> value="<?php echo $rowsSub->id; ?>"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $rowsSub->name; ?> </option>
                                 <?php endforeach; ?>
                             <?php endforeach; ?>
                         </select>
@@ -98,6 +99,16 @@ $this->fileLayout = "Layout.php";
                     </div>
                 </div>
                 <!-- end rows -->
+                <?php if( isset($record->photo) && file_exists("../assets/upload/products".$record->photo)):  ?>
+                <!-- rows -->
+                <div class="row" style="margin-top:5px;">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10">
+                        <img src="../assets/upload/products/<?php echo $record->photo; ?>" style="width: 100px;" alt="">
+                    </div>
+                </div>
+                <!-- end rows -->
+                <?php endif; ?>
                 <!-- rows -->
                 <div class="row" style="margin-top:5px;">
                     <div class="col-md-2"></div>

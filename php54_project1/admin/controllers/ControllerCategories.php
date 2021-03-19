@@ -6,7 +6,7 @@
         use ModelCategories;
         public function index(){
             // quy định số bản ghi trên 1 trang
-            $recordPerPage = 4;
+            $recordPerPage = 40;
             // tính số trang
             $numPage = ceil($this->modelTotalRecord()/$recordPerPage);
             // lấy dữ liệu từ model

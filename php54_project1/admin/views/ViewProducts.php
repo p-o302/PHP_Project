@@ -14,18 +14,24 @@ $this->fileLayout = "Layout.php";
                     <th style="width: 100px;">Photo</th>
                     <th>Name</th>
                     <th style="width:200px;"> Category</th>
-                    <th style="width:50px;"> Hot</th>
-                    <th style="width:100px;"> </th>
+                    <th style="width:70px;"> Discuont</th>
+                    <th style="width:100px;"> Hot</th>
                 </tr>
                 <?php foreach ($data as $rows) : ?>
                     <tr>
-                        <td></td>
+                        <td>
+                            <?php if($rows->photo!="" && file_exists("../assets/upload/products/".$rows->photo)): ?>
+                            <img src="../assets/upload/products/<?php echo $rows->photo; ?>" style="width: 100px; height: 100px;" alt="">
+                            <?php endif; ?>
+                        </td>
                         <td><?php echo $rows->name; ?></td>
                         <td >
                             <?php $category = $this->modelGetCategory($rows->category_id);
                             echo isset($category->name) ? $category->name : "" 
                             ?>
                         </td>
+                        <td style="text-align: center;"><?php echo $rows->discount; ?> %</td>
+                        
                         <td style="text-align: center;"> 
                             <?php if(isset($rows->hot)&& $rows->hot == 1): ?>
                                 <span class="fa fa-check"></span>
