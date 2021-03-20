@@ -11,7 +11,7 @@
                 $categoriesSub = $this->modelListCategorySub($rows->id);
             ?>
                 <?php foreach($categoriesSub as $rowsSub) : ?>
-                    <li style="padding-left: 20px;"> <a href="index.php?controller=product&action=cxategory&id=<?php echo $rowsSub->id; ?>"><?php echo $rowsSub -> name; ?></a></li>
+                    <li style="padding-left: 20px;"> <a href="index.php?controller=products&action=cxategory&id=<?php echo $rowsSub->id; ?>"><?php echo $rowsSub -> name; ?></a></li>
                     <?php endforeach;?>
             <?php endforeach; ?>
           </ul>
