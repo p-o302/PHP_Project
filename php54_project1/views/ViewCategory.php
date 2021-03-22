@@ -9,7 +9,7 @@ $this->fileLayout = "LayoutTrangTrong.php";
                 <h2>Samsung</h2>
               </div>
               <div class="col-lg-3 pull-right text-right">
-                <select class="form-control" onchange="location.href = '/Product/Category/2?order='+this.value;">
+                <select class="form-control" onchange="location.href = 'index.php?controller=products&action=category&id=<?php echo $category_id;?>&order='+this.value;">
                   <option value="0">Sắp xếp</option>
                   <option value="priceAsc">Giá tăng dần</option>
                   <option value="priceDesc">Giá giảm dần</option>

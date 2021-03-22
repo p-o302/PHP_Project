@@ -18,9 +18,27 @@ $this->fileLayout = "LayoutTrangChu.php";
         <div id="content-tabb1" class="content-tab content-tab-proindex" style="display:none">
             <div class="clearfix">
                 <!-- box product -->
+
                 <?php $hotProduct = $this->modelHotProduct(); ?>
+                <style>
+                    .discount{
+                        position: absolute;
+                        width: 45px;
+                        line-height: 45px;
+                        text-align: center;
+                        border-radius: 50%;
+                        background-color:black;
+                        color: white;
+                        font-weight: bold;
+                        top: -10px;
+                        left: -2%;
+                    }
+                </style>
                 <?php foreach ($hotProduct as $rows) : ?>
-                    <div class="col-xs-6 col-md-2 col-sm-6 ">
+                    <div class="col-xs-6 col-md-2 col-sm-6 " style="position: relative;">
+
+                    <div class="discount"><?php echo $rows->discount; ?> % </div>
+
                         <div class="product-grid" id="product-1168979" style="height: 350px; overflow: hidden;">
                             <div class="image"> <a href="index.php?controller=products&action=detail&id=<?php echo $rows->name; ?>"><img src="assets/upload/products/<?php echo $rows->photo; ?>" title="product ..." alt="product ..." class="img-responsive"></a> </div>
                             <div class="info">
